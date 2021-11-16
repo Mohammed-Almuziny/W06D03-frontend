@@ -23,7 +23,7 @@ export const LogIN = () => {
 
     if (notErr) {
       localStorage.setItem("user", res.data);
-      navigate("/Home");
+      navigate("/");
     }
   };
 

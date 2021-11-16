@@ -1,11 +1,15 @@
-import React from 'react'
-import { useState } from 'react'
+import React from "react";
 
 export const Home = () => {
-  const [user, setUser] = useState()
-  return (
+  const user = localStorage.getItem("user");
+  console.log(user);
+  return user ? (
     <div>
       <h1>Home</h1>
     </div>
-  )
-}
+  ) : (
+    <div>
+      <h1>you have to log in </h1>
+    </div>
+  );
+};
