@@ -12,7 +12,13 @@ export const SginIn = () => {
       email: event.target.email.value,
       password: event.target.password.value,
     };
-    axios.post("http://localhost:5000/account/sginin", inputData);
+    axios
+      .post("http://localhost:5000/account/sginin", inputData)
+      .catch((err) => {
+        if (err) {
+          alert(err.response.data);
+        }
+      });
     navigate("/login");
   };
 
@@ -25,7 +31,12 @@ export const SginIn = () => {
       >
         <input name="userName" placeholder="user name" required />
         <input type="email" name="email" placeholder="email" required />
-        <input type="password" name="password" placeholder="password" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          required
+        />
         <button
           onSubmit={(event) => {
             handleSubmit(event);
